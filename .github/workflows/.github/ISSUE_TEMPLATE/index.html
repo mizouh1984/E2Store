@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mizou1984 Store | البانل الشامل لأجهزة Enigma2</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif; background: #0d1117; color: #e6edf3; margin: 0; padding: 0; line-height: 1.6; }
+    .hero { background: linear-gradient(180deg, #161b22 0%, #0d1117 100%); border-bottom: 1px solid #30363d; padding: 50px 20px 40px; text-align: center; }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+    h1 { color: #58a6ff; font-size: 2.3rem; margin: 0 0 10px; }
+    .subtitle { color: #8b949e; font-size: 1.1rem; max-width: 650px; margin: 0 auto 25px; }
+    .badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .cmd-box { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 22px; margin: 25px 0; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .cmd-label { color: #8b949e; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+    .cmd-code { background: #0d1117; border: 1px solid #21262d; border-radius: 8px; padding: 14px; color: #7ee787; font-family: monospace; font-size: 0.95rem; direction: ltr; text-align: left; word-break: break-all; margin-bottom: 16px; }
+    .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: #238636; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; font-size: 0.98rem; transition: 0.2s; }
+    .btn:hover { background: #2ea043; }
+    .btn-blue { background: #1f6feb; }
+    .btn-blue:hover { background: #388bfd; }
+    .btn-gray { background: #21262d; border: 1px solid #30363d; }
+    .btn-gray:hover { background: #30363d; }
+    .section-title { color: #f0f6fc; font-size: 1.4rem; margin: 35px 0 18px; border-right: 4px solid #58a6ff; padding-right: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px; transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { transform: translateY(-3px); border-color: #58a6ff; }
+    .card h3 { color: #58a6ff; margin: 0 0 10px; font-size: 1.15rem; }
+    .card p { color: #8b949e; font-size: 0.93rem; margin: 0; }
+    .devices { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px; margin-top: 30px; text-align: center; }
+    .tag { display: inline-block; background: #21262d; color: #c9d1d9; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; margin: 4px; border: 1px solid #30363d; }
+    footer { text-align: center; color: #8b949e; font-size: 0.88rem; padding: 30px 20px; border-top: 1px solid #21262d; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>🛰️ Mizou1984 Store</h1>
+    <p class="subtitle">البانل الشامل لأجهزة Enigma2 — تحميل الصور الرسمية، الإضافات، السيرفرات، القنوات، والنسخ الاحتياطي مباشرة من التلفاز</p>
+    <div class="badges">
+      <img src="[https://img.shields.io/github/downloads/mizouh1984/E2Store/total?style=for-the-badge&logo=github&label=Total%20Downloads&color=007ec6](https://img.shields.io/github/downloads/mizouh1984/E2Store/total?style=for-the-badge&logo=github&label=Total%20Downloads&color=007ec6)" alt="Total Downloads">
+      <img src="[https://img.shields.io/github/v/release/mizouh1984/E2Store?style=for-the-badge&label=Latest%20Version&color=2ea44f](https://img.shields.io/github/v/release/mizouh1984/E2Store?style=for-the-badge&label=Latest%20Version&color=2ea44f)" alt="Latest Version">
+      <img src="[https://img.shields.io/github/downloads/mizouh1984/E2Store/latest/total?style=for-the-badge&label=Latest%20Downloads&color=orange](https://img.shields.io/github/downloads/mizouh1984/E2Store/latest/total?style=for-the-badge&label=Latest%20Downloads&color=orange)" alt="Latest Downloads">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cmd-box">
+      <span class="cmd-label">🚀 للتثبيت أو التحديث المباشر عبر برنامج <b>Telnet / PuTTY</b> انسخ الأمر التالي:</span>
+      <div class="cmd-code" id="telnet-cmd">wget -q "--no-check-certificate" [https://raw.githubusercontent.com/mizouh1984/E2Store/main/installer.sh](https://raw.githubusercontent.com/mizouh1984/E2Store/main/installer.sh) -O - | /bin/sh</div>
+      <div class="actions">
+        <button class="btn" id="copy-btn" onclick="copyCmd()">📋 نسخ أمر التثبيت</button>
+        <a class="btn btn-blue" href="[https://github.com/mizouh1984/E2Store/releases/latest](https://github.com/mizouh1984/E2Store/releases/latest)">📥 تحميل ملف IPK</a>
+        <a class="btn btn-gray" href="[https://github.com/mizouh1984/E2Store](https://github.com/mizouh1984/E2Store)">💻 صفحة المشروع على GitHub</a>
+      </div>
+    </div>
+
+    <h2 class="section-title">✨ مميزات البانل الرئيسية</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🖼️ متصفح الصور المباشر</h3>
+        <p>تحميل صور OpenPLi, OpenATV, EGAMI, OpenBH, HDSatelit و Hyperion مباشرة على الرسيفر مع دعم MultiBoot FlashOnline.</p>
+      </div>
+      <div class="card">
+        <h3>🔑 السيرفرات والبلوجينات</h3>
+        <p>أدوات إدخال أسطر CCcam و OSCam، سيرفرات مجانية محدثة، إضافات SkyBlue، وترتيب أبجدي A-Z داخل جميع الأقسام.</p>
+      </div>
+      <div class="card">
+        <h3>📡 القنوات والبيكونات</h3>
+        <p>مكتبة محدثة لملفات القنوات (Vhannibal, Ciefp, MOHAMED_OS, Novaler) مع بيكونات وشعارات إقلاع 4K.</p>
+      </div>
+      <div class="card">
+        <h3>🛠️ الصيانة والنسخ الاحتياطي</h3>
+        <p>نسخ احتياطي واسترجاع تفاعلي للصور والقنوات والاشتراكات، أداة E2 Doctor، فحص سرعة الإنترنت وضبط الإشارة.</p>
+      </div>
+    </div>
+
+    <div class="devices">
+      <h3 style="margin-top:0; color:#f0f6fc;">⚡ الأجهزة والصور المدعومة</h3>
+      <span class="tag">Vu+ (4K & HD)</span>
+      <span class="tag">Novaler</span>
+      <span class="tag">Dreambox</span>
+      <span class="tag">OpenPLi</span>
+      <span class="tag">OpenATV</span>
+      <span class="tag">EGAMI</span>
+      <span class="tag">OpenBH</span>
+      <span class="tag">OpenViX</span>
+    </div>
+  </div>
+
+  <footer>
+    تطوير وتحديث: <b>Mizou1984</b> | جميع الحقوق محفوظة &copy; 2026
+  </footer>
+
+  <script>
+    function copyCmd() {
+      const cmd = document.getElementById('telnet-cmd').innerText;
+      navigator.clipboard.writeText(cmd).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.innerText = '✅ تم النسخ بنجاح!';
+        setTimeout(() => { btn.innerText = '📋 نسخ أمر التثبيت'; }, 2500);
+      });
+    }
+  </script>
+
+</body>
+</html>
 
