@@ -11,6 +11,17 @@ def get_free_flash_mb(path="/"):
     except Exception:
         return 999.0
 
+import os
+from Screens.MessageBox import MessageBox
+
+def get_free_flash_mb(path="/"):
+    try:
+        st = os.statvfs(path)
+        free_bytes = st.f_bavail * st.f_frsize
+        return round(free_bytes / (1024.0 * 1024.0), 1)
+    except Exception:
+        return 999.0
+
 
 
 # ==============================================================================
@@ -1076,20 +1087,43 @@ class Mizou1984StoreScreen(Screen):
 
     def onOk(self):
         sel = self["list"].getCurrent()
+            def onOk(self):
+        sel = self["list"].getCurrent()
         if not sel:
             return
         if self.mode == "categories":
             self.loadPlugins(sel[1])
         else:
             plugin = sel[1]
-            register_installed_plugin(plugin["id"])
-            cmd = plugin["cmd_dpkg"] if IS_DREAMOS else plugin["cmd_opkg"]
-            prefix = "apt-get update && " if IS_DREAMOS else "opkg update && "
-            self.session.open(
-                Console,
-                title="mizou1984 Store — Installing %s" % plugin["name"],
-                cmdlist=[prefix + cmd],
-            )
+            free_mb = get_free_flash_mb("/")
+            min_mb = 25.0 if plugin.get("category") in ("skins", "images") else 15.0
+            if free_mb < min_mb:
+                msg = (
+                    "⚠️ تحذير: مساحة الذاكرة الداخلية منخفضة!\n\n"
+                    "• المساحة المتوفرة: %s MB\n"
+                    "• الحد الأدنى المطلوب: %s MB\n\n"
+                    "تثبيت (%s) قد يسبب تجمد الجهاز.\n"
+                    "هل تريد المتابعة على أي حال؟"
+                ) % (free_mb, min_mb, plugin.get("name", plugin.get("id", "Plugin")))
+                self.session.openWithCallback(
+                    lambda ok: self._executePluginInstall(plugin) if ok else None,
+                    MessageBox,
+                    msg,
+                    MessageBox.TYPE_YESNO,
+                    default=False
+                )
+                return
+            self._executePluginInstall(plugin)
+
+    def _executePluginInstall(self, plugin):
+        register_installed_plugin(plugin["id"])
+        cmd = plugin["cmd_dpkg"] if IS_DREAMOS else plugin["cmd_opkg"]
+        prefix = "apt-get update && " if IS_DREAMOS else ""
+        self.session.open(
+            Console,
+            title="mizou1984 Store - Installing %s" % plugin["name"],
+            cmdlist=[prefix + cmd],
+        )
 
     def onBack(self):
         if self.mode == "plugins":
