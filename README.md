@@ -7,8 +7,12 @@
   <img src="https://img.shields.io/github/v/release/mizouh1984/E2Store?style=for-the-badge&label=Latest%20Version&color=2ea44f" alt="Latest Release" />
   <img src="https://img.shields.io/github/downloads/mizouh1984/E2Store/latest/total?style=for-the-badge&label=Latest%20Downloads&color=orange" alt="Release Downloads" />
   <br>
-  <img src="https://img.shields.io/github/downloads/mizouh1984/E2Store/5.5.0/enigma2-plugin-extensions-mizou1984store_5.5.0_all.ipk?label=IPK%20DOWNLOADS&color=0284c7&style=for-the-badge" alt="IPK Downloads" />
-  <img src="https://img.shields.io/github/downloads/mizouh1984/E2Store/5.5.0/enigma2-plugin-extensions-mizou1984store_5.5.0_all.deb?label=DEB%20DOWNLOADS&color=8b5cf6&style=for-the-badge" alt="DEB Downloads" />
+  <a href="https://github.com/mizouh1984/E2Store/releases/latest/download/enigma2-plugin-extensions-mizou1984store_5.5.0_all.ipk">
+    <img src="https://img.shields.io/badge/DOWNLOAD-.IPK%20(Vu%2B%20%2F%20OpenATV%20%2F%20OpenPLi)-0284c7?style=for-the-badge&logo=linux&logoColor=white" alt="Download IPK" />
+  </a>
+  <a href="https://github.com/mizouh1984/E2Store/releases/latest/download/enigma2-plugin-extensions-mizou1984store_5.5.0_all.deb">
+    <img src="https://img.shields.io/badge/DOWNLOAD-.DEB%20(Dreambox%20%2F%20DreamOS)-8b5cf6?style=for-the-badge&logo=debian&logoColor=white" alt="Download DEB" />
+  </a>
   <br>
   <img src="https://img.shields.io/badge/FLASH%20SPACE%20GUARD-ACTIVE-16a34a?style=for-the-badge&logo=shield&logoColor=white" alt="Flash Guard" />
   <img src="https://img.shields.io/badge/PYTHON-2.7%20%26%203.x-0284c7?style=for-the-badge&logo=python&logoColor=white" alt="Python Support" />
