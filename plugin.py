@@ -1,4 +1,18 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+import os
+from Screens.MessageBox import MessageBox
+
+def get_free_flash_mb(path="/"):
+    try:
+        st = os.statvfs(path)
+        free_bytes = st.f_bavail * st.f_frsize
+        return round(free_bytes / (1024.0 * 1024.0), 1)
+    except Exception:
+        return 999.0
+
+
+
 # ==============================================================================
 # mizou1984 E2 Store — Exclusive Edition by mizou1984 (v4.2.0)
 # Full-Screen Dark Frameless UI (wfNoBorder) + Enlarged Custom Plugin Icon
@@ -7,7 +21,7 @@
 # Python Support: Python 2.7 & Python 3.x (3.9 -> 3.14+)
 # ==============================================================================
 
-from __future__ import print_function
+ 
 import json
 import os
 import re
