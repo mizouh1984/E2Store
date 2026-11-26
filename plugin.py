@@ -45,7 +45,8 @@ from enigma import getDesktop, eTimer
 
 PLUGIN_VERSION = "5.6.0"
 BRAND_MARK = "mizou1984 Exclusive"
-UPDATE_FEED_BASE = "https://raw.githubusercontent.com/mizou1984-store/e2-store/main"
+UPDATE_FEED_BASE = "https://raw.githubusercontent.com/mizouh1984/E2Store/main"
+
 
 IS_DREAMOS = os.path.exists("/var/lib/dpkg/status")
 DESKTOP_WIDTH = getDesktop(0).size().width()
