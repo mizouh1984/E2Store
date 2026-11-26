@@ -43,7 +43,7 @@ from Components.MenuList import MenuList
 from Components.Label import Label
 from enigma import getDesktop, eTimer
 
-PLUGIN_VERSION = "4.2.0"
+PLUGIN_VERSION = "5.6.0"
 BRAND_MARK = "mizou1984 Exclusive"
 UPDATE_FEED_BASE = "https://raw.githubusercontent.com/mizou1984-store/e2-store/main"
 
