@@ -3,16 +3,6 @@ from __future__ import print_function
 import os
 from Screens.MessageBox import MessageBox
 
-def get_free_flash_mb(path="/"):
-    try:
-        st = os.statvfs(path)
-        free_bytes = st.f_bavail * st.f_frsize
-        return round(free_bytes / (1024.0 * 1024.0), 1)
-    except Exception:
-        return 999.0
-
-import os
-from Screens.MessageBox import MessageBox
 
 def get_free_flash_mb(path="/"):
     try:
@@ -1087,8 +1077,6 @@ class Mizou1984StoreScreen(Screen):
 
     def onOk(self):
         sel = self["list"].getCurrent()
-            def onOk(self):
-        sel = self["list"].getCurrent()
         if not sel:
             return
         if self.mode == "categories":
@@ -1155,4 +1143,4 @@ def Plugins(**kwargs):
             icon="plugin.png",
             fnc=main,
         )
-    ]
+                              ]
