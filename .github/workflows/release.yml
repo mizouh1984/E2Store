@@ -1,5 +1,4 @@
-
-name: Auto Build IPK
+name: Auto Build IPK & DEB
 
 on:
   push:
@@ -22,22 +21,38 @@ jobs:
         id: ver
         run: echo "v=$(tr -d ' \r\n' < version.txt)" >> $GITHUB_OUTPUT
 
-      - name: Build IPK
+      - name: Build IPK and DEB Packages
         run: |
           VER="${{ steps.ver.outputs.v }}"
-          PKG="enigma2-plugin-extensions-mizou1984store_${VER}_all.ipk"
-          mkdir -p build/CONTROL build/usr/lib/enigma2/python/Plugins/Extensions/Mizou1984Store
-          rsync -av --exclude='.git*' --exclude='build' --exclude='*.md' --exclude='*.html' --exclude='*.sh' --exclude='version.txt' ./ build/usr/lib/enigma2/python/Plugins/Extensions/Mizou1984Store/
-          printf "Package: enigma2-plugin-extensions-mizou1984store\nVersion: %s\nDescription: Mizou1984 Store Panel\nSection: extra\nPriority: optional\nMaintainer: mizouh1984\nArchitecture: all\n" "$VER" > build/CONTROL/control
-          echo "2.0" > build/debian-binary
-          tar -czf build/control.tar.gz -C build/CONTROL .
-          tar -czf build/data.tar.gz -C build usr
-          ar -r "$PKG" build/debian-binary build/control.tar.gz build/data.tar.gz
-          echo "pkg=$PKG" >> $GITHUB_ENV
+          PKG_IPK="enigma2-plugin-extensions-mizou1984store_${VER}_all.ipk"
+          PKG_DEB="enigma2-plugin-extensions-mizou1984store_${VER}_all.deb"
+
+          # 1. تحضير هيكل الملفات المشترك
+          mkdir -p build_ipk/CONTROL build_ipk/usr/lib/enigma2/python/Plugins/Extensions/Mizou1984Store
+          rsync -av --exclude='.git*' --exclude='build*' --exclude='*.md' --exclude='*.html' --exclude='*.sh' --exclude='version.txt' ./ build_ipk/usr/lib/enigma2/python/Plugins/Extensions/Mizou1984Store/
+
+          # 2. بناء حزمة IPK (لأجهزة Vu+, Novaler, OpenPLi, OpenATV...)
+          printf "Package: enigma2-plugin-extensions-mizou1984store\nVersion: %s\nDescription: Mizou1984 Store - Enigma2 All-in-One Panel\nSection: extra\nPriority: optional\nMaintainer: mizouh1984\nArchitecture: all\n" "$VER" > build_ipk/CONTROL/control
+          echo "2.0" > build_ipk/debian-binary
+          tar -czf build_ipk/control.tar.gz -C build_ipk/CONTROL .
+          tar -czf build_ipk/data.tar.gz -C build_ipk usr
+          ar -r "$PKG_IPK" build_ipk/debian-binary build_ipk/control.tar.gz build_ipk/data.tar.gz
+
+          # 3. بناء حزمة DEB (لأجهزة Dreambox / DreamOS)
+          mkdir -p build_deb/DEBIAN build_deb/usr/lib/enigma2/python/Plugins/Extensions/Mizou1984Store
+          cp -r build_ipk/usr/* build_deb/usr/
+          printf "Package: enigma2-plugin-extensions-mizou1984store\nVersion: %s\nDescription: Mizou1984 Store - Enigma2 All-in-One Panel\nSection: extra\nPriority: optional\nMaintainer: mizouh1984 <https://github.com/mizouh1984/E2Store>\nArchitecture: all\n" "$VER" > build_deb/DEBIAN/control
+          chmod -R 755 build_deb/DEBIAN
+          dpkg-deb --build --root-owner-group build_deb "$PKG_DEB"
+
+          echo "pkg_ipk=$PKG_IPK" >> $GITHUB_ENV
+          echo "pkg_deb=$PKG_DEB" >> $GITHUB_ENV
 
       - name: Publish Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.ver.outputs.v }}
           name: mizou1984-store ${{ steps.ver.outputs.v }}
-          files: ${{ env.pkg }}
+          files: |
+            ${{ env.pkg_ipk }}
+            ${{ env.pkg_deb }}
