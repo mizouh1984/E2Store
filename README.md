@@ -5,14 +5,14 @@
 <p align="center">
   <img src="https://img.shields.io/github/downloads/mizouh1984/E2Store/total?style=for-the-badge&logo=github&label=Total%20Downloads&color=007ec6" alt="Total Downloads" />
   <a href="https://github.com/mizouh1984/E2Store/releases/latest">
-    <img src="https://img.shields.io/badge/LATEST%20VERSION-V5.6.0-2ea44f?style=for-the-badge" alt="Latest Release" />
+    <img src="https://img.shields.io/github/v/release/mizouh1984/E2Store?style=for-the-badge&label=LATEST%20VERSION&color=2ea44f" alt="Latest Release" />
   </a>
   <img src="https://img.shields.io/github/downloads/mizouh1984/E2Store/latest/total?style=for-the-badge&label=Latest%20Downloads&color=orange" alt="Release Downloads" />
   <br>
-  <a href="https://github.com/mizouh1984/E2Store/releases/latest/download/enigma2-plugin-extensions-mizou1984store_5.6.0_all.ipk">
+  <a href="https://github.com/mizouh1984/E2Store/releases/latest/download/enigma2-plugin-extensions-mizou1984store_5.7.0_all.ipk">
     <img src="https://img.shields.io/badge/DOWNLOAD-.IPK%20(OpenATV%20%7C%20OpenPLi)-0284c7?style=for-the-badge&logo=linux&logoColor=white" alt="Download IPK" />
   </a>
-  <a href="https://github.com/mizouh1984/E2Store/releases/latest/download/enigma2-plugin-extensions-mizou1984store_5.6.0_all.deb">
+  <a href="https://github.com/mizouh1984/E2Store/releases/latest/download/enigma2-plugin-extensions-mizou1984store_5.7.0_all.deb">
     <img src="https://img.shields.io/badge/DOWNLOAD-.DEB%20(Dreambox%20%7C%20DreamOS)-8b5cf6?style=for-the-badge&logo=debian&logoColor=white" alt="Download DEB" />
   </a>
   <br>
