@@ -56,8 +56,8 @@
       <div class="cmd-code" id="telnet-cmd">wget -q "--no-check-certificate" https://raw.githubusercontent.com/mizouh1984/E2Store/main/installer.sh -O - | /bin/sh</div>
       <div class="actions">
         <button class="btn" id="copy-btn" onclick="copyCmd()">📋 نسخ أمر التثبيت</button>
-        <a class="btn btn-blue" href="https://github.com/mizouh1984/E2Store/releases/latest">📥 تحميل ملف IPK</a>
-        <a class="btn btn-purple" href="https://github.com/mizouh1984/E2Store/releases/latest">📥 تحميل ملف DEB (Dreambox)</a>
+        <a class="btn btn-blue" href="https://github.com/mizouh1984/E2Store/releases/download/5.6.0/enigma2-plugin-extensions-mizou1984store_5.6.0_all.ipk">📥 تحميل ملف IPK</a>
+        <a class="btn btn-purple" href="https://github.com/mizouh1984/E2Store/releases/download/5.6.0/enigma2-plugin-extensions-mizou1984store_5.6.0_all.deb">📥 تحميل ملف DEB (Dreambox)</a>
         <a class="btn btn-gray" href="https://github.com/mizouh1984/E2Store">💻 صفحة المشروع على GitHub</a>
       </div>
     </div>
@@ -70,45 +70,4 @@
       </div>
       <div class="card">
         <h3>🔑 السيرفرات والبلوجينات</h3>
-        <p>أدوات إدخال أسطر CCcam و OSCam، سيرفرات مجانية محدثة، إضافات XCPlugin و XtraEvent، وترتيب أبجدي A-Z داخل جميع الأقسام.</p>
-      </div>
-      <div class="card">
-        <h3>📡 القنوات والبيكونات</h3>
-        <p>مكتبة محدثة لملفات القنوات (Vhannibal, Ciefp, MOHAMED_OS, Novaler) مع بيكونات وشعارات إقلاع 4K.</p>
-      </div>
-      <div class="card">
-        <h3>🛠️ الفحص والحماية والنسخ الاحتياطي</h3>
-        <p>فاحص ومُصلح البلوجينات التلقائي، درع حماية مساحة الفلاش، نسخ احتياطي واسترجاع تفاعلي للصور والقنوات والاشتراكات.</p>
-      </div>
-    </div>
-
-    <div class="devices">
-      <h3 style="margin-top:0; color:#f0f6fc;">⚡ الأجهزة والصور المدعومة</h3>
-      <span class="tag">Vu+ (4K & HD)</span>
-      <span class="tag">Novaler</span>
-      <span class="tag">Dreambox (DreamOS)</span>
-      <span class="tag">OpenPLi</span>
-      <span class="tag">OpenATV</span>
-      <span class="tag">EGAMI</span>
-      <span class="tag">OpenBH</span>
-      <span class="tag">OpenViX</span>
-    </div>
-  </div>
-
-  <footer>
-    تطوير وتحديث: <b>Mizou1984</b> | جميع الحقوق محفوظة &copy; 2026
-  </footer>
-
-  <script>
-    function copyCmd() {
-      const cmd = document.getElementById('telnet-cmd').innerText;
-      navigator.clipboard.writeText(cmd).then(() => {
-        const btn = document.getElementById('copy-btn');
-        btn.innerText = '✅ تم النسخ بنجاح!';
-        setTimeout(() => { btn.innerText = '📋 نسخ أمر التثبيت'; }, 2500);
-      });
-    }
-  </script>
-
-</body>
-</html>
+        <p>أدوات إدخال أسطر CCcam و OSCam، سيرفرات مجانية
