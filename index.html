@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mizou1984 E2Store | البانل الشامل لأجهزة Enigma2</title>
-    <meta name="description" content="Mizou1984 E2Store - البانل الشامل لأجهزة Enigma2 لتحميل صور OpenPLi, OpenATV, EGAMI, OpenBH، السيرفرات، الإضافات، والبيكونات لأجهزة Vu+ و Novaler و Dreambox.">
-    <meta name="keywords" content="enigma2, plugin, vuplus, novaler, dreambox, openpli, openatv, egami, openbh, oscam, cccam, picons, multiboot, e2store, mizou1984">
-    <meta name="author" content="Mizou1984">
+  <meta name="description" content="Mizou1984 E2Store - البانل الشامل لأجهزة Enigma2 لتحميل صور OpenPLi, OpenATV, EGAMI, OpenBH، السيرفرات، الإضافات، والبيكونات لأجهزة Vu+ و Novaler و Dreambox.">
+  <meta name="keywords" content="enigma2, plugin, vuplus, novaler, dreambox, openpli, openatv, egami, openbh, oscam, cccam, picons, multiboot, e2store, mizou1984">
+  <meta name="author" content="Mizou1984">
   <style>
     * { box-sizing: border-box; }
     body { font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif; background: #0d1117; color: #e6edf3; margin: 0; padding: 0; line-height: 1.6; }
@@ -23,6 +23,8 @@
     .btn:hover { background: #2ea043; }
     .btn-blue { background: #1f6feb; }
     .btn-blue:hover { background: #388bfd; }
+    .btn-purple { background: #8957e5; }
+    .btn-purple:hover { background: #a371f7; }
     .btn-gray { background: #21262d; border: 1px solid #30363d; }
     .btn-gray:hover { background: #30363d; }
     .section-title { color: #f0f6fc; font-size: 1.4rem; margin: 35px 0 18px; border-right: 4px solid #58a6ff; padding-right: 12px; }
@@ -41,23 +43,25 @@
   <div class="hero">
     <h1>🛰️ Mizou1984 E2Store — Enigma2 All-in-One Panel</h1>
     <p class="subtitle">البانل الشامل لأجهزة Enigma2 — تحميل الصور الرسمية، الإضافات، السيرفرات، القنوات، والنسخ الاحتياطي مباشرة من التلفاز</p>
-        <div class="badges">
+    <div class="badges">
       <img src="https://img.shields.io/github/downloads/mizouh1984/E2Store/total?style=for-the-badge&logo=github&label=Total%20Downloads&color=007ec6" alt="Total Downloads">
       <img src="https://img.shields.io/github/v/release/mizouh1984/E2Store?style=for-the-badge&label=Latest%20Version&color=2ea44f" alt="Latest Version">
       <img src="https://img.shields.io/github/downloads/mizouh1984/E2Store/latest/total?style=for-the-badge&label=Latest%20Downloads&color=orange" alt="Latest Downloads">
     </div>
   </div>
+
   <div class="container">
     <div class="cmd-box">
-      <span class="cmd-label">🚀 للتثبيت أو التحديث المباشر عبر برنامج <b>Telnet / PuTTY</b> انسخ الأمر التالي:</span>
-            <div class="cmd-code" id="telnet-cmd">wget -q "--no-check-certificate" https://raw.githubusercontent.com/mizouh1984/E2Store/main/installer.sh -O - | /bin/sh</div>
-            <div class="actions">
+      <span class="cmd-label">🚀 للتثبيت أو التحديث المباشر (IPK & DEB) عبر برنامج <b>Telnet / PuTTY</b> انسخ الأمر التالي:</span>
+      <div class="cmd-code" id="telnet-cmd">wget -q "--no-check-certificate" https://raw.githubusercontent.com/mizouh1984/E2Store/main/installer.sh -O - | /bin/sh</div>
+      <div class="actions">
         <button class="btn" id="copy-btn" onclick="copyCmd()">📋 نسخ أمر التثبيت</button>
         <a class="btn btn-blue" href="https://github.com/mizouh1984/E2Store/releases/latest">📥 تحميل ملف IPK</a>
+        <a class="btn btn-purple" href="https://github.com/mizouh1984/E2Store/releases/latest">📥 تحميل ملف DEB (Dreambox)</a>
         <a class="btn btn-gray" href="https://github.com/mizouh1984/E2Store">💻 صفحة المشروع على GitHub</a>
       </div>
-
     </div>
+
     <h2 class="section-title">✨ مميزات البانل الرئيسية</h2>
     <div class="grid">
       <div class="card">
@@ -66,15 +70,15 @@
       </div>
       <div class="card">
         <h3>🔑 السيرفرات والبلوجينات</h3>
-        <p>أدوات إدخال أسطر CCcam و OSCam، سيرفرات مجانية محدثة، إضافات SkyBlue، وترتيب أبجدي A-Z داخل جميع الأقسام.</p>
+        <p>أدوات إدخال أسطر CCcam و OSCam، سيرفرات مجانية محدثة، إضافات XCPlugin و XtraEvent، وترتيب أبجدي A-Z داخل جميع الأقسام.</p>
       </div>
       <div class="card">
         <h3>📡 القنوات والبيكونات</h3>
         <p>مكتبة محدثة لملفات القنوات (Vhannibal, Ciefp, MOHAMED_OS, Novaler) مع بيكونات وشعارات إقلاع 4K.</p>
       </div>
       <div class="card">
-        <h3>🛠️ الصيانة والنسخ الاحتياطي</h3>
-        <p>نسخ احتياطي واسترجاع تفاعلي للصور والقنوات والاشتراكات، أداة E2 Doctor، فحص سرعة الإنترنت وضبط الإشارة.</p>
+        <h3>🛠️ الفحص والحماية والنسخ الاحتياطي</h3>
+        <p>فاحص ومُصلح البلوجينات التلقائي، درع حماية مساحة الفلاش، نسخ احتياطي واسترجاع تفاعلي للصور والقنوات والاشتراكات.</p>
       </div>
     </div>
 
@@ -82,7 +86,7 @@
       <h3 style="margin-top:0; color:#f0f6fc;">⚡ الأجهزة والصور المدعومة</h3>
       <span class="tag">Vu+ (4K & HD)</span>
       <span class="tag">Novaler</span>
-      <span class="tag">Dreambox</span>
+      <span class="tag">Dreambox (DreamOS)</span>
       <span class="tag">OpenPLi</span>
       <span class="tag">OpenATV</span>
       <span class="tag">EGAMI</span>
