@@ -56,8 +56,8 @@
       <div class="cmd-code" id="telnet-cmd">wget -q "--no-check-certificate" https://raw.githubusercontent.com/mizouh1984/E2Store/main/installer.sh -O - | /bin/sh</div>
       <div class="actions">
         <button class="btn" id="copy-btn" onclick="copyCmd()">📋 نسخ أمر التثبيت</button>
-        <a class="btn btn-blue" href="https://github.com/mizouh1984/E2Store/releases/download/5.6.0/enigma2-plugin-extensions-mizou1984store_5.6.0_all.ipk">📥 تحميل ملف IPK</a>
-        <a class="btn btn-purple" href="https://github.com/mizouh1984/E2Store/releases/download/5.6.0/enigma2-plugin-extensions-mizou1984store_5.6.0_all.deb">📥 تحميل ملف DEB (Dreambox)</a>
+        <a class="btn btn-blue" id="btn-ipk" href="https://github.com/mizouh1984/E2Store/releases/download/5.7.0/enigma2-plugin-extensions-mizou1984store_5.7.0_all.ipk">📥 تحميل ملف IPK</a>
+        <a class="btn btn-purple" id="btn-deb" href="https://github.com/mizouh1984/E2Store/releases/download/5.7.0/enigma2-plugin-extensions-mizou1984store_5.7.0_all.deb">📥 تحميل ملف DEB (Dreambox)</a>
         <a class="btn btn-gray" href="https://github.com/mizouh1984/E2Store">💻 صفحة المشروع على GitHub</a>
       </div>
     </div>
@@ -70,4 +70,61 @@
       </div>
       <div class="card">
         <h3>🔑 السيرفرات والبلوجينات</h3>
-        <p>أدوات إدخال أسطر CCcam و OSCam، سيرفرات مجانية
+        <p>أدوات إدخال أسطر CCcam و OSCam، سيرفرات مجانية محدثة، وأهم إضافات IPTV والترجمة والطقس بنقرة زر واحدة.</p>
+      </div>
+      <div class="card">
+        <h3>📡 القنوات والبيكونات</h3>
+        <p>تحديث ملفات القنوات المرتبة لكل الأقمار، وتحميل البيكونات (Picons) وشعارات الإقلاع (4K Bootlogos) بسهولة تامة.</p>
+      </div>
+      <div class="card">
+        <h3>🛡️ فحص وصيانة النظام</h3>
+        <p>حماية مساحة الفلاش (Flash Space Guard)، إصلاح البلوجينات المعطوبة تلقائياً، وأخذ نسخة احتياطية كاملة للإعدادات.</p>
+      </div>
+    </div>
+
+    <div class="devices">
+      <h3 style="margin-top:0; color:#f0f6fc;">📺 الأجهزة والصور المدعومة</h3>
+      <span class="tag">Vu+ 4K / HD</span>
+      <span class="tag">Novaler Multibox</span>
+      <span class="tag">Dreambox (DreamOS .deb)</span>
+      <span class="tag">Octagon / Zgemma</span>
+      <span class="tag">OpenATV</span>
+      <span class="tag">OpenPLi</span>
+      <span class="tag">EGAMI</span>
+      <span class="tag">OpenBH</span>
+      <span class="tag">Python 2.7 & 3.x</span>
+    </div>
+  </div>
+
+  <footer>
+    تم التطوير بواسطة <b>Mizou1984</b> &copy; 2026 — جميع الحقوق محفوظة لمشروع E2Store
+  </footer>
+
+  <script>
+    function copyCmd() {
+      const cmdText = document.getElementById('telnet-cmd').innerText;
+      navigator.clipboard.writeText(cmdText).then(() => {
+        const btn = document.getElementById('copy-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✅ تم نسخ الأمر!';
+        setTimeout(() => { btn.innerHTML = originalText; }, 2500);
+      });
+    }
+
+    fetch('https://api.github.com/repos/mizouh1984/E2Store/releases/latest')
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.assets) {
+          data.assets.forEach(asset => {
+            if (asset.name.endsWith('.ipk')) {
+              document.getElementById('btn-ipk').href = asset.browser_download_url;
+            } else if (asset.name.endsWith('.deb')) {
+              document.getElementById('btn-deb').href = asset.browser_download_url;
+            }
+          });
+        }
+      })
+      .catch(err => console.error('Error fetching latest release:', err));
+  </script>
+</body>
+</html>
